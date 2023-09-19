@@ -1,11 +1,17 @@
-import { Employee } from "../../types";
 
 type Props = { 
-    isOpen: boolean
-};
+    eid: number,
+    firstName: string
+    familyName: string
+    knowAs?: string
+    position: string
+    email: string
+    edit: boolean
+}
 
-const EmployeeModal = (employee :Employee) => { 
-    const {  firstName, familyName, knowAs, position, email } = employee
+const EmployeeModal = (props: Props) => { 
+    const {  firstName, familyName, knowAs, position, email, eid } = props;
+
 
     return (
         <div className='flex flex-col '>
@@ -35,9 +41,10 @@ const EmployeeModal = (employee :Employee) => {
                 <h2>Know as</h2>
                 <input type="text" placeholder={knowAs}className="input input-bordered input-success w-full max-w-xs mt-2" />
             </div>
+
+            
         </div>
     )
-
 };
 
 export default EmployeeModal;

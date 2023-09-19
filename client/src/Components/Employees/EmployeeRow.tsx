@@ -1,9 +1,12 @@
 import { Employee } from '../../types';
 import { PencilAltIcon, TrashIcon } from '@heroicons/react/solid'
 import EmployeeModal from './EmployeeModal';
+import { useState } from 'react';
 
 const EmployeeRow = (employee :Employee) => {
-    const { eid, firstName, familyName, dateJoined, knowAs, position, email } = employee
+    const { eid, firstName, familyName, dateJoined, knowAs, position, email } = employee;
+    const [ edit, setEdit ] = useState<boolean>(false);
+    
     return (
         <>
             <tr className='hover'>
@@ -64,14 +67,11 @@ const EmployeeRow = (employee :Employee) => {
                     </div>
                 </td>
                 <th>
-                    
-                        <button className='btn btn-red'  onClick={()=> {}}>
-                            <label htmlFor="my-modal-1" >
-                                <TrashIcon className='h-6' />
-                            </label>
-                        </button>
-                    
-                    
+                    <button className='btn btn-red'  onClick={()=> {}}>
+                        <label htmlFor="my-modal-1" >
+                            <TrashIcon className='h-6' />
+                        </label>
+                    </button>
                 </th>
             </tr>
 
@@ -98,19 +98,18 @@ const EmployeeRow = (employee :Employee) => {
                         eid={employee.eid}
                         firstName={employee.firstName}
                         familyName={employee.familyName}
-                        dateJoined={employee.dateJoined}
                         knowAs={employee.knowAs}
                         email={employee.email}
                         position={employee.position}
+                        edit={edit}
                     />
                     <div className='flex mr-12 ml-12'>
                         <button className='btn w-40 mt-6 mr-10 '>
                             <label htmlFor="my-modal-2" >
                                 Cancel
                             </label>
-                            
                         </button>
-                        <button className='btn btn-secondary w-40 mt-6' onClick={() => {}}>
+                        <button className='btn btn-secondary w-40 mt-6' onClick={() => {setEdit(true)}}>
                             Edit
                         </button>
                     </div>
