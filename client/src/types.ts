@@ -3,7 +3,7 @@ export interface Employee {
     eid: number;
     firstName: string
     familyName: string
-    dateJoined?: Date
+    dateJoined?: string
     knowAs?: string
     position: string
     email: string

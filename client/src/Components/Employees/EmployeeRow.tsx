@@ -40,14 +40,14 @@ const EmployeeRow = (employee :Employee) => {
             <td>
                 <div className="flex items-center space-x-3">
                     <div>
-                        <div className="font-bold">{knowAs}</div>
+                        <div className="font-bold">{position}</div>
                     </div>
                 </div>
             </td>
             <td>
                 <div className="flex items-center space-x-3">
                     <div>
-                        <div className="font-bold">{position}</div>
+                        <div className="font-bold">{knowAs}</div>
                     </div>
                 </div>
             </td>

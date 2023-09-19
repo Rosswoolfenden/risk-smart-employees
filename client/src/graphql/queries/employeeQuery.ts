@@ -9,6 +9,7 @@ const Employees = gql `
             email
             position
             dateJoined
+            knowAs
         }
     }
 `

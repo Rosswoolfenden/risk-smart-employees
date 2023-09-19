@@ -9,6 +9,10 @@ module.exports = {
 			backgroundColor: {
 				primary: "#FAFAFA",
 			},
+			borderWidth: {
+                '1-5':              '1.5px',
+                '2-5':              '2.5px',
+            },
 
 			
 		}
