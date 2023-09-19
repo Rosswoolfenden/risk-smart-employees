@@ -14,13 +14,13 @@ const EmployeeTable = () => {
 
 
     return (
-        <div className='overflow-x-auto'>
-            <table className='table'>
+        <div className='overflow-x-auto '>
+            <table className='table bg-gray-800'>
                 <thead>
                     <tr>
                         
                     </tr>
-                    <th>Employee</th>
+                    <th>Edit</th>
                     <th>Employee Id</th>
                     <th>First Name</th>
                     <th>Family Name</th>
@@ -28,6 +28,7 @@ const EmployeeTable = () => {
                     <th>Position</th>
                     <th>Known as</th>
                     <th>Date Joined</th>
+                    <th>SACK THEM</th>
                 </thead>
                 <tbody>
 

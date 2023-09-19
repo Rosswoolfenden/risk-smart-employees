@@ -2,10 +2,11 @@ import './App.css'
 import EmployeeTable from './Components/Employees/EmployeeTable';
 // import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import TopBar from './Components/Navigation/Topbar';
+import Employees from './Components/Pages/Employees';
 function App() {
 
 	return (
-		<div>
+		<div >
 			<header>
 				<TopBar />
 			</header>
@@ -15,7 +16,7 @@ function App() {
 				</h1>
 
 				<div className='text-3xl mt-20 mr-20 ml-20  text-white font-bold'>
-					<EmployeeTable />
+					<Employees />
 				</div>
 					
 				
