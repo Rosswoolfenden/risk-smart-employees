@@ -1,8 +1,12 @@
 import { gql } from '@apollo/client';
 
 const Employees = gql `
-    query Employee { 
-        employees { 
+    query Employee (
+        $search: String
+    ) { 
+        employees (
+            search: $search
+        ) { 
             eid
             firstName
             familyName

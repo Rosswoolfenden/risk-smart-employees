@@ -3,10 +3,43 @@ import { PrismaClient } from "@prisma/client";
 import { CreateEmployeeInput, UpdateEmployeeInput } from "../types";
 
 const prisma = new PrismaClient();
-
 const resolver = {
     Query: {
-        employees: async () => await prisma.employee.findMany()
+        employees: async ( _: unknown, args: { search: string  }): Promise<any> => {
+            let employees;
+            if(!args.search) {
+                employees =  prisma.employee.findMany();
+            }
+            else {
+                employees = await prisma.employee.findMany({
+                    where: {
+                        OR: [
+                            {
+                                email: {
+                                    startsWith: args.search,
+                                }
+                            },
+                            {
+                                firstName: {
+                                    startsWith: args.search,
+                                }
+                            },
+                            {
+                                familyName: {
+                                    startsWith: args.search,
+                                }
+                            },
+                            {
+                                position: {
+                                    startsWith: args.search,
+                                }
+                            }
+                        ]
+                    }
+                });
+            }
+            return employees;
+        }
     },
     Mutation: {
         createNewEmployee: async (

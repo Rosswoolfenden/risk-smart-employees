@@ -17,7 +17,6 @@ function App() {
 					<Employees />
 				</div>
 			</main>
-			
 		</div>
 	)
 }

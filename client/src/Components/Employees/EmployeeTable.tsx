@@ -2,8 +2,8 @@ import useGetEmployees from '../../hooks/useGetEmployees';
 import EmployeeRow from './EmployeeRow';
 import LoadingRow from './LoadingRow';
 
-const EmployeeTable = () => {
-    const {employees, loading, error } =  useGetEmployees();
+const EmployeeTable = (search: any) => {
+    const {employees, loading, error } =  useGetEmployees(search);
 
     return (
         <div className='overflow-x-auto '>

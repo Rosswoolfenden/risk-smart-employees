@@ -14,7 +14,7 @@ const typeDefs = gql`
     }
 
     type Query { 
-        employees: [Employee]
+        employees(search: String): [Employee]
     }
 
     type Mutation { 

@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 import { Employee } from '../types';
 import dayjs from 'dayjs';
 
-const useGetEmployees = () => {
-    const { loading, error, data } = useQuery(Employees, {});
+const useGetEmployees = (search: string) => {
+    const { loading, error, data } = useQuery(Employees, {variables: {search: search.search}});
     const [ employees, setEmployees ] = useState<Employee[]>([]);
-
+    
     useEffect(() => { 
         if(loading || error) return;
 
