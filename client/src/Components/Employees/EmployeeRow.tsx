@@ -18,7 +18,7 @@ const EmployeeRow = (props: Props) => {
             <tr className='hover'>
                 <th>
                     <button className='btn btn-secondary' onClick={() =>setIsEditOpen(true)}>
-                        <label htmlFor="my-modal-2" > 
+                        <label htmlFor='my-modal-2' > 
                             <PencilAltIcon className='h-6' />
                         </label>
                     </button>
@@ -74,7 +74,7 @@ const EmployeeRow = (props: Props) => {
                 </td>
                 <th>
                     <button className='btn btn-red'  onClick={()=> {setIsDeleteOpen(true)}}>
-                        <label htmlFor="my-modal-1" >
+                        <label htmlFor='my-modal-1' >
                             <TrashIcon className='h-6' />
                         </label>
                     </button>

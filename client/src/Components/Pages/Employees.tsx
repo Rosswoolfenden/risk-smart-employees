@@ -9,7 +9,6 @@ const Employees = () => {
             <div className='flex '> 
                 <button className='btn btn-secondary' onClick={() => setIsNewEmployeeOpen(true)}>Create new Employee (Ross Maybe?)</button>
             </div>
-            
             <div className='mt-10'>
                 <EmployeeTable />
             </div>
@@ -17,10 +16,8 @@ const Employees = () => {
                 isNewEmployeeOpen = {isNewEmployeeOpen}
                 setIsNewEmployeeOpen = {setIsNewEmployeeOpen}
             />
-        </div>
-        
+        </div>   
     )
-    
-}
+};
 
 export default Employees;

@@ -1,6 +1,6 @@
-import useCreateNewEmployee from "../../hooks/useCreateNewEmployee";
-import Modal from "./Modal";
-import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/solid"
+import useCreateNewEmployee from '../../hooks/useCreateNewEmployee';
+import Modal from './Modal';
+import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/solid'
 
 type Props = { 
     isNewEmployeeOpen: boolean,
@@ -40,37 +40,37 @@ const CreateNewEmployeeModal = (props: Props) => {
                             Hopfully they are better than the current ones.
                         </p>
                         {error && 
-                            <div className="alert alert-error mt-10">
+                            <div className='alert alert-error mt-10'>
                                 <XCircleIcon className='h-6 fill-red'/>
                                 <h1>{error}</h1>
                             </div>
                         }
                         {succsess && 
                             <div className='flex justify-center mt-6 '>
-                                <span className="flex justify-center "><CheckCircleIcon className='w-20 fill-success'/></span>
+                                <span className='flex justify-center '><CheckCircleIcon className='w-20 fill-success'/></span>
                             </div>
                         }
                         {!loading && !succsess &&
                             <>
                                 <div className=' mt-6 mr-12 ml-12'>
                                     <h2>First Name</h2>
-                                    <input onChange={handleFnChange} type="text" placeholder={'First Name' } className={`input input-bordered  w-full max-w-xs mt-2 ${first? 'input-success' : 'input-error'}`} />
+                                    <input onChange={handleFnChange} type='text' placeholder={'First Name' } className={`input input-bordered  w-full max-w-xs mt-2 ${first? 'input-success' : 'input-error'}`} />
                                 </div>
                                 <div className='mr-12 ml-12 mt-6'>
                                     <h2>Family Name</h2>
-                                    <input onChange={handleLnChange} type="text" placeholder={'family Name'} className={`input input-bordered  w-full max-w-xs mt-2 ${last? 'input-success' : 'input-error'}`} />
+                                    <input onChange={handleLnChange} type='text' placeholder={'family Name'} className={`input input-bordered  w-full max-w-xs mt-2 ${last? 'input-success' : 'input-error'}`} />
                                 </div>
                                 <div className='mr-12 ml-12 mt-6'>
                                     <h2>Position</h2>
-                                    <input onChange={handleJobChange} type="text" placeholder={'position'} className={`input input-bordered  w-full max-w-xs mt-2 ${job? 'input-success' : 'input-error'}`} />
+                                    <input onChange={handleJobChange} type='text' placeholder={'position'} className={`input input-bordered  w-full max-w-xs mt-2 ${job? 'input-success' : 'input-error'}`} />
                                 </div>
                                 <div className='mr-12 ml-12 mt-6'>
                                     <h2>Email</h2>
-                                    <input onChange={handleEmailChange} type="text" placeholder={'email'} className={`input input-bordered  w-full max-w-xs mt-2 ${emailAdress? 'input-success' : 'input-error'}`} />
+                                    <input onChange={handleEmailChange} type='text' placeholder={'email'} className={`input input-bordered  w-full max-w-xs mt-2 ${emailAdress? 'input-success' : 'input-error'}`} />
                                 </div>
                                 <div className='mr-12 ml-12 mt-6'>
                                     <h2>Know as</h2>
-                                    <input onChange={handleNicknameChange} type="text" placeholder={'Know as?'} className="input input-bordered input-success w-full max-w-xs mt-2" />
+                                    <input onChange={handleNicknameChange} type='text' placeholder={'Know as? (default first name)'} className='input input-bordered input-success w-full max-w-xs mt-2' />
                                 </div>
                             </>
                         }
@@ -101,10 +101,8 @@ const CreateNewEmployeeModal = (props: Props) => {
                                     </h3>
                                 </button>
                             </div>
-                        } 
-                            
+                        }
                     </div>
-
                 </div>
             }
         />

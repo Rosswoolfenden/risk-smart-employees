@@ -1,6 +1,6 @@
-import { useMutation } from "@apollo/client";
-import { useEffect, useState } from "react";
-import NewEmployee from "../graphql/mutations/newEmployee";
+import { useMutation } from '@apollo/client';
+import { useEffect, useState } from 'react';
+import NewEmployee from '../graphql/mutations/newEmployee';
 
 const useCreateNewEmployee = () => {
     const [ first, setFirst ] = useState();
@@ -42,9 +42,7 @@ const useCreateNewEmployee = () => {
         if(!first || !last || !emailAdress || !job) {
             setError('Please complete all needed feilds.');
         }
-        let knowAs; 
-        if(nickname) knowAs = nickname
-        if(!nickname) knowAs = first
+        const knowAs = (nickname) ? nickname : first;
         if(!nickname) setNickname(first);
 
         addEmployee({variables : {
@@ -60,12 +58,8 @@ const useCreateNewEmployee = () => {
 
 
     useEffect(() => { 
-        if(graphqlError ) {
-            console.log('There was an error')    
-            return;
-        }
+        if(graphqlError ) return;
         if(data) {
-            console.log("THIS WAS A SUCCSESS");
             setSuccsess(true);
         }
     }, [data, graphqlError, loading]);

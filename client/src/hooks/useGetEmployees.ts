@@ -1,7 +1,7 @@
-import { useQuery } from "@apollo/client";
-import Employees from "../graphql/queries/employeeQuery";
-import { useEffect, useState } from "react";
-import { Employee } from "../types";
+import { useQuery } from '@apollo/client';
+import Employees from '../graphql/queries/employeeQuery';
+import { useEffect, useState } from 'react';
+import { Employee } from '../types';
 import dayjs from 'dayjs';
 
 const useGetEmployees = () => {

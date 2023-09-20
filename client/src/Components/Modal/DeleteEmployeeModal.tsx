@@ -1,6 +1,6 @@
-import { useState } from "react"
-import Modal from "./Modal"
-import useDeleteEmployee from "../../hooks/useDeleteEmployee"
+import { useState } from 'react'
+import Modal from './Modal'
+import useDeleteEmployee from '../../hooks/useDeleteEmployee'
 
 type Props = {
     eid: number,
@@ -57,7 +57,6 @@ const DeleteEmployeeModal = (props: Props) => {
                                 </div>
                             </>
                         }
-                    
                 </div>
             }
         />

@@ -1,6 +1,6 @@
-import { useMutation } from "@apollo/client";
-import { useEffect, useState } from "react";
-import SackEmployee from "../graphql/mutations/deleteEmployee";
+import { useMutation } from '@apollo/client';
+import { useEffect, useState } from 'react';
+import SackEmployee from '../graphql/mutations/deleteEmployee';
 
 type Props = {
     eid: number;
