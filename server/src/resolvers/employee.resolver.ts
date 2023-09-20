@@ -33,6 +33,30 @@ const resolver = {
                                 position: {
                                     startsWith: args.search,
                                 }
+                            },
+                            {
+                                email: {
+                                    contains: args.search,
+                                    mode: 'insensitive',
+                                }
+                            },
+                            {
+                                firstName: {
+                                    contains: args.search,
+                                    mode: 'insensitive',
+                                }
+                            },
+                            {
+                                familyName: {
+                                    contains: args.search,
+                                    mode: 'insensitive',
+                                }
+                            },
+                            {
+                                position: {
+                                    contains: args.search,
+                                    mode: 'insensitive',
+                                }
                             }
                         ]
                     }
