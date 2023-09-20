@@ -25,7 +25,6 @@ const CreateNewEmployeeModal = (props: Props) => {
         loading,
         succsess
     }= useCreateNewEmployee();
-    console.log(succsess);
 
     return (
         <Modal 

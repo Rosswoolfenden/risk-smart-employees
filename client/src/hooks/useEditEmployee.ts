@@ -20,7 +20,6 @@ const useEditEmployee = (props:  Props) => {
     const [ nickname, setNickname ] = useState(knowAs);
     const [ job, setJob ] = useState(position);
     const [ succsess, setSuccsess ] = useState<boolean | null>(null);
-    
     const [editEmpoye, {
         loading,
         error,

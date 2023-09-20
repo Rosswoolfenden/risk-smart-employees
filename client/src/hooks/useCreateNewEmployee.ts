@@ -41,14 +41,17 @@ const useCreateNewEmployee = () => {
         if(createEmployee === false) return;
         if(!first || !last || !emailAdress || !job) {
             setError('Please complete all needed feilds.');
-        } 
+        }
+        let knowAs; 
+        if(nickname) knowAs = nickname
+        if(!nickname) knowAs = first
         if(!nickname) setNickname(first);
 
         addEmployee({variables : {
                 firstName: first,
                 familyName: last,
                 email: emailAdress,
-                knowAs: nickname,
+                knowAs: knowAs,
                 position: job
             }
         });

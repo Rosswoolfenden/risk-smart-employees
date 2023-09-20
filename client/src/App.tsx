@@ -13,7 +13,7 @@ function App() {
 					Employee Table
 				</h1>
 
-				<div className='text-3xl mt-20 mr-20 ml-20  text-white font-bold'>
+				<div className='text-3xl mt-6 mr-20 ml-20  text-white font-bold'>
 					<Employees />
 				</div>
 					
