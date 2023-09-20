@@ -28,12 +28,11 @@ const typeDefs = gql`
 
         updateEmployee(
             eid: Int!
-            firstName: String!
-            familyName: String!
-            dateJoined: String!
-            knowAs: String!
-            position: String!
-            email: String!
+            firstName: String
+            familyName: String
+            knowAs: String
+            position: String
+            email: String
         ) : Employee
 
         deleteEmployee( 

@@ -12,7 +12,7 @@ COPY prisma ./prisma/
 
 # COPY ENV variable
 COPY .env ./
-
+RUN npm install --save nodemon typescript ts-node ts-node-dev
 # COPY tsconfig.json file
 COPY tsconfig.json ./
 

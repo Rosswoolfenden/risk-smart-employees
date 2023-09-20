@@ -1,3 +1,5 @@
+// import { useState } from "react"
+import useEditEmployee from "../../hooks/useEditEmployee"
 
 type Props = { 
     eid: number,
@@ -6,12 +8,20 @@ type Props = {
     knowAs?: string
     position: string
     email: string
-    edit: boolean
+    edit: boolean,
+    setUpdateSuccess: Function
 }
 
 const EmployeeModal = (props: Props) => { 
-    const {  firstName, familyName, knowAs, position, email, eid } = props;
+    const {  firstName, familyName, knowAs, position, email } = props;
 
+    const {
+        handleJobChange,
+        handleEmailChange,
+        handleNicknameChange,
+        handleFnChange,
+        handleLnChange
+    } =  useEditEmployee(props);
 
     return (
         <div className='flex flex-col '>
@@ -23,26 +33,24 @@ const EmployeeModal = (props: Props) => {
             </p>
             <div className=' mt-6 mr-12 ml-12'>
                 <h2>First Name</h2>
-                <input type="text" placeholder={firstName }className="input input-bordered input-success w-full max-w-xs mt-2" />
+                <input onChange={handleFnChange} type="text" placeholder={firstName }className="input input-bordered input-success w-full max-w-xs mt-2" />
             </div>
             <div className='mr-12 ml-12 mt-6'>
                 <h2>Family Name</h2>
-                <input type="text" placeholder={familyName }className="input input-bordered input-success w-full max-w-xs mt-2" />
+                <input onChange={handleLnChange} type="text" placeholder={familyName} className="input input-bordered input-success w-full max-w-xs mt-2" />
             </div>
             <div className='mr-12 ml-12 mt-6'>
                 <h2>Position</h2>
-                <input type="text" placeholder={position }className="input input-bordered input-success w-full max-w-xs mt-2" />
+                <input onChange={handleJobChange} type="text" placeholder={position} className="input input-bordered input-success w-full max-w-xs mt-2" />
             </div>
             <div className='mr-12 ml-12 mt-6'>
                 <h2>Email</h2>
-                <input type="text" placeholder={email}className="input input-bordered input-success w-full max-w-xs mt-2" />
+                <input onChange={handleEmailChange} type="text" placeholder={email} className="input input-bordered input-success w-full max-w-xs mt-2" />
             </div>
             <div className='mr-12 ml-12 mt-6'>
                 <h2>Know as</h2>
-                <input type="text" placeholder={knowAs}className="input input-bordered input-success w-full max-w-xs mt-2" />
+                <input onChange={handleNicknameChange} type="text" placeholder={knowAs} className="input input-bordered input-success w-full max-w-xs mt-2" />
             </div>
-
-            
         </div>
     )
 };

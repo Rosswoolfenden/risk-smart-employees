@@ -13,7 +13,6 @@ const useGetEmployees = () => {
 
         const employeeList:  Employee[] = [];
         data.employees.forEach( (entry: any) => {
-            console.log(entry.dateJoined)
             const employee = {
                 eid: entry.eid,
                 firstName: entry.firstName,
@@ -25,7 +24,6 @@ const useGetEmployees = () => {
             }
             employeeList.push(employee);
         });
-        console.log(employeeList);
         
         setEmployees(employeeList);
     }, [data, loading, error]);

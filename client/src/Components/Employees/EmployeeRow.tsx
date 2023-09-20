@@ -6,6 +6,7 @@ import { useState } from 'react';
 const EmployeeRow = (employee :Employee) => {
     const { eid, firstName, familyName, dateJoined, knowAs, position, email } = employee;
     const [ edit, setEdit ] = useState<boolean>(false);
+    const [ updateSuccess, setUpdateSuccess ] = useState<boolean>(false);
     
     return (
         <>
@@ -94,24 +95,45 @@ const EmployeeRow = (employee :Employee) => {
             <div className="modal bg-gray-800">
                 <div className="modal-box relative bg-gray-800">
                     <label htmlFor="my-modal-2" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <EmployeeModal 
-                        eid={employee.eid}
-                        firstName={employee.firstName}
-                        familyName={employee.familyName}
-                        knowAs={employee.knowAs}
-                        email={employee.email}
-                        position={employee.position}
-                        edit={edit}
-                    />
+                    {!updateSuccess   &&
+                        <EmployeeModal 
+                            eid={employee.eid}
+                            firstName={employee.firstName}
+                            familyName={employee.familyName}
+                            knowAs={employee.knowAs}
+                            email={employee.email}
+                            position={employee.position}
+                            edit={edit}
+                            setUpdateSuccess={setUpdateSuccess}
+                        />
+                    }
+                    {updateSuccess && 
+                        <>
+                            Update Succsess!
+                        </>
+
+                    }
                     <div className='flex mr-12 ml-12'>
-                        <button className='btn w-40 mt-6 mr-10 '>
-                            <label htmlFor="my-modal-2" >
-                                Cancel
-                            </label>
-                        </button>
-                        <button className='btn btn-secondary w-40 mt-6' onClick={() => {setEdit(true)}}>
-                            Edit
-                        </button>
+                        {updateSuccess &&
+                            <button className='btn w-40 mt-6 mr-10 '>
+                                <label htmlFor="my-modal-2" onClick={() => {window.location.reload();}}>
+                                    Cancel
+                                </label>
+                            </button>
+                        }
+                        {!updateSuccess   &&
+                            <>
+                                <button className='btn w-40 mt-6 mr-10 '>
+                                    <label htmlFor="my-modal-2" >
+                                        Cancel
+                                    </label>
+                                </button>
+                            
+                                <button className='btn btn-secondary w-40 mt-6' onClick={() => {setEdit(true)}}>
+                                    Edit
+                                </button>
+                            </>
+                        }
                     </div>
                 </div>
             </div>

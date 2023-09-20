@@ -1,24 +1,15 @@
-import { useEffect } from "react";
-import useGetEmployees from "../../hooks/useGetEmployees";
-import EmployeeRow from "./EmployeeRow";
+import useGetEmployees from '../../hooks/useGetEmployees';
+import EmployeeRow from './EmployeeRow';
 
 const EmployeeTable = () => {
     // eslint-disable-next-line
     const {employees, loading, error } =  useGetEmployees();
-
-    useEffect(() => {
-        console.log('data: ', employees);
-        console.log('loading: ', loading);
-        console.log('error: ', error);
-    },  [employees, loading, error]);
-
 
     return (
         <div className='overflow-x-auto '>
             <table className='table bg-gray-800'>
                 <thead>
                     <tr>
-                        
                     </tr>
                     <th>Edit</th>
                     <th>Employee Id</th>

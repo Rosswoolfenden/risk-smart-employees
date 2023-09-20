@@ -1,10 +1,8 @@
 import './App.css'
-import EmployeeTable from './Components/Employees/EmployeeTable';
-// import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import TopBar from './Components/Navigation/Topbar';
 import Employees from './Components/Pages/Employees';
-function App() {
 
+function App() {
 	return (
 		<div >
 			<header>

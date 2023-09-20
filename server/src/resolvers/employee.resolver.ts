@@ -11,15 +11,22 @@ const resolver = {
     Mutation: {
         createNewEmployee: async (
             _: unknown,
-            args: { data : CreateEmployeeInput }
+            args: { 
+                eid: number
+                email: string
+                firstName: string
+                familyName: string
+                position: string
+                knowAs?:  string
+             }
         ) => {
             return prisma.employee.create({
                 data: {
-                    email: args.data.email,
-                    firstName: args.data.firstName,
-                    familyName: args.data.familyName,
-                    position: args.data.position,
-                    knowAs: args.data.knowAs,
+                    email: args.email,
+                    firstName: args.firstName,
+                    familyName: args.familyName,
+                    position: args.position,
+                    knowAs: args.knowAs,
                     dateJoined: new Date()
                 }
             });
@@ -36,17 +43,23 @@ const resolver = {
 
         updateEmployee:  async ( 
             _:unknown, 
-            args: { data: UpdateEmployeeInput }
+            args: { 
+                eid: number
+                email?: string
+                firstName?: string
+                familyName?: string
+                position?: string
+                knowAs?:  string
+             }
         ) => {
             return prisma.employee.update({
-                where: { eid: args.data.eid },
+                where: { eid: args.eid },
                 data: {
-                    email: args.data.email,
-                    firstName: args.data.firstName,
-                    familyName: args.data.familyName,
-                    position: args.data.position,
-                    knowAs: args.data.knowAs,
-                    dateJoined: new Date()
+                    email: args.email,
+                    firstName: args.firstName,
+                    familyName: args.familyName,
+                    position: args.position,
+                    knowAs: args.knowAs,
                 }
             })
         }

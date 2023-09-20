@@ -11,7 +11,6 @@ export interface UpdateEmployeeInput {
     eid: number
     firstName?: string
     familyName?: string
-    dateJoined?: Date
     knowAs?: string
     position?: string
     email?: string
