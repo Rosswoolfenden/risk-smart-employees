@@ -1,8 +1,14 @@
+import { useEffect } from 'react';
 import './App.css'
 import TopBar from './Components/Navigation/Topbar';
 import Employees from './Components/Pages/Employees';
 
 function App() {
+
+	useEffect(() => { 
+        document.title = 'Reynold Industrys'
+    });
+	
 	return (
 		<div >
 			<header>
