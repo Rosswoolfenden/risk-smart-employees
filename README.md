@@ -10,8 +10,8 @@ Risk smart assesment -  Emplpyee table make with apollo graphql server/Posgresql
     docker exec -it risk-smart-employees sh -c "npx prisma db push"
     docker exec -it risk-smart-employees sh -c "npx prisma db seed"
 
-## Open the app: 
-    app: http://localhost:3000/
+Open the app: 
+## http://localhost:3000/
     
 ## Choices
     - Apollo-graphql - familiarty and easy of set up
