@@ -10,16 +10,16 @@ type Props = {
     position: string
     email: string
     edit: boolean
-    setUpdateSuccess: Function
 }
 
 const useEditEmployee = (props:  Props) => {
-    const {  firstName, familyName, knowAs, position, email, eid, edit, setUpdateSuccess } = props;
+    const {  firstName, familyName, knowAs, position, email, eid, edit } = props;
     const [ first, setFirst ] = useState(firstName);
     const [ last, setLast ] = useState(familyName);
     const [ emailAdress, setEmail ] = useState(email);
     const [ nickname, setNickname ] = useState(knowAs);
     const [ job, setJob ] = useState(position);
+    const [ succsess, setSuccsess ] = useState<boolean | null>(null);
     
     console.log(eid)
     const [editEmpoye, {
@@ -48,33 +48,23 @@ const useEditEmployee = (props:  Props) => {
         setEmail(e.target.value);
     }
 
-    useEffect(() => { 
-        console.log('EID', eid)
+    useEffect(() => {
+
         if(!edit) return;
-        console.log('here ', {
-            eid: eid,
-            firstName: first,
-            familyName: last,
-            email: emailAdress,
-            knowAs: nickname,
-            position: job
-        })
         editEmpoye({variables : {
              eid: eid,
             firstName: first,
             familyName: last,
             email: emailAdress,
             knowAs: nickname,
-            position: position}
+            position: job
+        }
         });
     }, [edit]);
 
     useEffect(() => {
-        // console.log(loading);
-        console.log('error', error);
-        console.log(data);
         if(data && !error) {
-            setUpdateSuccess(true);
+            setSuccsess(true);
         }
     } ,[ loading, data, error]);
 
@@ -86,7 +76,7 @@ const useEditEmployee = (props:  Props) => {
         handleEmailChange,
         loading,
         error,
-        data,
+        succsess
     }
 }
 

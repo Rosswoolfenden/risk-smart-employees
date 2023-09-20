@@ -1,8 +1,8 @@
 import useGetEmployees from '../../hooks/useGetEmployees';
 import EmployeeRow from './EmployeeRow';
+import LoadingRow from './LoadingRow';
 
 const EmployeeTable = () => {
-    // eslint-disable-next-line
     const {employees, loading, error } =  useGetEmployees();
 
     return (
@@ -29,20 +29,18 @@ const EmployeeTable = () => {
                         </h1>
                     }
                     {loading &&
-                        <h1>
-                            Loading
-                        </h1>
+                        <>
+                            <LoadingRow />
+                            <LoadingRow />
+                            <LoadingRow />
+                            <LoadingRow />
+                        </>
 
                     }
-                    {!loading  && !error && employees && employees.map( (employee)  => (
-                        <EmployeeRow 
-                            eid={employee.eid}
-                            firstName={employee.firstName}
-                            familyName={employee.familyName}
-                            dateJoined={employee.dateJoined}
-                            knowAs={employee.knowAs}
-                            email={employee.email}
-                            position={employee.position}
+                    {!loading  && !error && employees && employees.map( (employee, index)  => (
+                        <EmployeeRow
+                            employee={employee}
+                            index={index} 
                         />
                     ))}
                     

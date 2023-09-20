@@ -22,8 +22,8 @@ const typeDefs = gql`
             firstName: String!
             familyName: String!
             dateJoined: String
-            position: String
-            email: String
+            position: String!
+            email: String!
         ) : Employee 
 
         updateEmployee(

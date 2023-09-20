@@ -34,5 +34,4 @@ const useGetEmployees = () => {
         error,
     }
 }   
-
 export default useGetEmployees;
