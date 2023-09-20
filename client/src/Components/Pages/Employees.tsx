@@ -14,7 +14,7 @@ const Employees = () => {
         <div>
             <div className='flex w-full'> 
                 <button className='btn btn-secondary' onClick={() => setIsNewEmployeeOpen(true)}>Create new Employee (Ross Maybe?)</button>
-                <input type="text" onChange={handleSearchChange} placeholder="Search (First Name, Last Name, Email)" className="input input-bordered input-secondary w-full ml-10" />
+                <input type="text" onChange={handleSearchChange} placeholder="Search (First Name, Last Name, Email, Position)" className="input input-bordered input-secondary w-full ml-10" />
             </div>
             <div className='mt-10'>
                 <EmployeeTable search={search}/>
