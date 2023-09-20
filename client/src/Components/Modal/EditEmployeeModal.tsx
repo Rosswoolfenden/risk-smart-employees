@@ -32,7 +32,7 @@ const EmployeeModal = (props: Props) => {
             setOpen={setIsEditOpen} 
             children={
                 <div>
-                    <div className='flex flex-col '>
+                    <div className='flex flex-col'>
                         <h1 className='text-3xl mr-12 ml-12 text-white font-bold '>
                             Edit Employee Infomation
                         </h1>
@@ -46,7 +46,7 @@ const EmployeeModal = (props: Props) => {
                         }
                         {succsess && 
                             <div className='flex justify-center mt-6 '>
-                                <span className="flex justify-center "><CheckCircleIcon className='w-20'/></span>
+                                <span className="flex justify-center "><CheckCircleIcon className='w-20 fill-success'/></span>
                             </div>
                         }
                         {!loading && !succsess &&

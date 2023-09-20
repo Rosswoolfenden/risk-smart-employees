@@ -21,7 +21,6 @@ const useEditEmployee = (props:  Props) => {
     const [ job, setJob ] = useState(position);
     const [ succsess, setSuccsess ] = useState<boolean | null>(null);
     
-    console.log(eid)
     const [editEmpoye, {
         loading,
         error,
@@ -52,7 +51,7 @@ const useEditEmployee = (props:  Props) => {
 
         if(!edit) return;
         editEmpoye({variables : {
-             eid: eid,
+            eid: eid,
             firstName: first,
             familyName: last,
             email: emailAdress,

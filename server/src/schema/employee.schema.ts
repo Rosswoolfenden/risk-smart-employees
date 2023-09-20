@@ -24,6 +24,7 @@ const typeDefs = gql`
             dateJoined: String
             position: String!
             email: String!
+            knowAs: String
         ) : Employee 
 
         updateEmployee(

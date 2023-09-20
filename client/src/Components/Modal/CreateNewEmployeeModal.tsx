@@ -1,6 +1,6 @@
 import useCreateNewEmployee from "../../hooks/useCreateNewEmployee";
 import Modal from "./Modal";
-import { XCircleIcon } from "@heroicons/react/solid"
+import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/solid"
 
 type Props = { 
     isNewEmployeeOpen: boolean,
@@ -21,12 +21,12 @@ const CreateNewEmployeeModal = (props: Props) => {
         emailAdress, 
         job,
         setCreateEmployee,
-        error
+        error, 
+        loading,
+        succsess
     }= useCreateNewEmployee();
+    console.log(succsess);
 
-
-    const succsess = false;
-    const loading =  false;
     return (
         <Modal 
             isOpen={isNewEmployeeOpen}
@@ -35,7 +35,7 @@ const CreateNewEmployeeModal = (props: Props) => {
                 <div> 
                     <div className='flex flex-col'>
                         <h1 className='text-3xl mr-12 ml-12 text-white font-bold '>
-                                Hire new Employee Infomation
+                            Hire new Employee Infomation
                         </h1>
                         <p className='mr-12 ml-12 mt-6'>
                             Hopfully they are better than the current ones.
@@ -46,28 +46,35 @@ const CreateNewEmployeeModal = (props: Props) => {
                                 <h1>{error}</h1>
                             </div>
                         }
-                        <>
-                            <div className=' mt-6 mr-12 ml-12'>
-                                <h2>First Name</h2>
-                                <input onChange={handleFnChange} type="text" placeholder={'First Name' } className={`input input-bordered  w-full max-w-xs mt-2 ${first? 'input-success' : 'input-error'}`} />
+                        {succsess && 
+                            <div className='flex justify-center mt-6 '>
+                                <span className="flex justify-center "><CheckCircleIcon className='w-20 fill-success'/></span>
                             </div>
-                            <div className='mr-12 ml-12 mt-6'>
-                                <h2>Family Name</h2>
-                                <input onChange={handleLnChange} type="text" placeholder={'family Name'} className={`input input-bordered  w-full max-w-xs mt-2 ${last? 'input-success' : 'input-error'}`} />
-                            </div>
-                            <div className='mr-12 ml-12 mt-6'>
-                                <h2>Position</h2>
-                                <input onChange={handleJobChange} type="text" placeholder={'position'} className={`input input-bordered  w-full max-w-xs mt-2 ${job? 'input-success' : 'input-error'}`} />
-                            </div>
-                            <div className='mr-12 ml-12 mt-6'>
-                                <h2>Email</h2>
-                                <input onChange={handleEmailChange} type="text" placeholder={'email'} className={`input input-bordered  w-full max-w-xs mt-2 ${emailAdress? 'input-success' : 'input-error'}`} />
-                            </div>
-                            <div className='mr-12 ml-12 mt-6'>
-                                <h2>Know as</h2>
-                                <input onChange={handleNicknameChange} type="text" placeholder={'Know as?'} className="input input-bordered input-success w-full max-w-xs mt-2" />
-                            </div>
-                        </>
+                        }
+                        {!loading && !succsess &&
+                            <>
+                                <div className=' mt-6 mr-12 ml-12'>
+                                    <h2>First Name</h2>
+                                    <input onChange={handleFnChange} type="text" placeholder={'First Name' } className={`input input-bordered  w-full max-w-xs mt-2 ${first? 'input-success' : 'input-error'}`} />
+                                </div>
+                                <div className='mr-12 ml-12 mt-6'>
+                                    <h2>Family Name</h2>
+                                    <input onChange={handleLnChange} type="text" placeholder={'family Name'} className={`input input-bordered  w-full max-w-xs mt-2 ${last? 'input-success' : 'input-error'}`} />
+                                </div>
+                                <div className='mr-12 ml-12 mt-6'>
+                                    <h2>Position</h2>
+                                    <input onChange={handleJobChange} type="text" placeholder={'position'} className={`input input-bordered  w-full max-w-xs mt-2 ${job? 'input-success' : 'input-error'}`} />
+                                </div>
+                                <div className='mr-12 ml-12 mt-6'>
+                                    <h2>Email</h2>
+                                    <input onChange={handleEmailChange} type="text" placeholder={'email'} className={`input input-bordered  w-full max-w-xs mt-2 ${emailAdress? 'input-success' : 'input-error'}`} />
+                                </div>
+                                <div className='mr-12 ml-12 mt-6'>
+                                    <h2>Know as</h2>
+                                    <input onChange={handleNicknameChange} type="text" placeholder={'Know as?'} className="input input-bordered input-success w-full max-w-xs mt-2" />
+                                </div>
+                            </>
+                        }
                         {!succsess && !loading &&  
                             <div className='flex mt-6 justify-center mr-10'>
                                 <button className='btn w-40 mr-10' onClick={() =>{setIsNewEmployeeOpen(false)}}>
@@ -87,7 +94,7 @@ const CreateNewEmployeeModal = (props: Props) => {
                         {succsess && 
                             <div className='flex flex-col justify-center'>
                                 <h2 className='flex  justify-center'>
-                                    Succsesfully Completed Edit
+                                    New Hire Confirmed 
                                 </h2>
                                 <button className='ml-16 btn btn-success w-80 mt-10 ' onClick={() => {window.location.reload();}}>
                                     <h3>

@@ -13,6 +13,9 @@ module.exports = {
                 '1-5':              '1.5px',
                 '2-5':              '2.5px',
             },
+			fill: {
+				'success':  '#2EBD5A',
+			}
 
 			
 		}

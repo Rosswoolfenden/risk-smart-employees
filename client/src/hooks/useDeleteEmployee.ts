@@ -23,9 +23,6 @@ const useDeleteEmployee = (props: Props) => {
     }, [fire]);
 
     useEffect(() => {
-
-        console.log(data)
-        console.log(error)
         if(!loading || error) return;
         setSuccsess(true);
         
